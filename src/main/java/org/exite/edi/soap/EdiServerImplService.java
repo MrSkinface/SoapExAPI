@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "EdiServerImplService", targetNamespace = "http://soap.edi.exite.org/", wsdlLocation = "http://195.191.226.106:8080/soap/?wsdl")
+@WebServiceClient(name = "EdiServerImplService", targetNamespace = "http://soap.edi.exite.org/", wsdlLocation = "https://ru-soap.edi.su/soap/?wsdl")
 public class EdiServerImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class EdiServerImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://195.191.226.106:8080/soap/?wsdl");
+            url = new URL("https://ru-soap.edi.su/soap/?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

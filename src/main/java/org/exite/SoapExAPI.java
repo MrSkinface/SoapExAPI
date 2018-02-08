@@ -74,17 +74,4 @@ public class SoapExAPI implements ISoapExAPI {
     public boolean sendDocBase64(String fileName, String base64content) throws SoapExAPIException {
         return sendDoc(fileName, Base64.getDecoder().decode(base64content));
     }
-
-    @Override
-    public boolean uploadDoc(String fileName, byte[] content, String remoteFolder) throws SoapExAPIException {
-        EdiResponse resp=srv.uploadDoc(user, fileName, content, remoteFolder);
-        if(resp.getErrorCode()!=0)
-            throw new SoapExAPIException(resp.getErrorMessage());
-        return resp.getErrorCode()==0;
-    }
-
-    @Override
-    public boolean uploadDocBase64(String fileName, String base64content, String remoteFolder) throws SoapExAPIException {
-        return uploadDoc(fileName, Base64.getDecoder().decode(base64content), remoteFolder);
-    }
 }

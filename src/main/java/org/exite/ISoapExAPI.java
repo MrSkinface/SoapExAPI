@@ -67,31 +67,5 @@ public interface ISoapExAPI {
      * 			if something goes wrong [bad 'fileName', bad 'base64content']
      */
     boolean sendDocBase64(String fileName, String base64content) throws SoapExAPIException;
-    /**
-     *
-     * @param fileName
-     * 			name of a local file
-     * @param content
-     * 			byte's array of local doc's content
-     * @param remoteFolder
-     * 			remote folder
-     * @return
-     * 			error code (0 == O.K., otherwise SoapExAPIException will be thrown)
-     * @throws SoapExAPIException
-     * 			if something goes wrong [bad 'fileName', bad 'content']
-     */
-    boolean uploadDoc(String fileName, byte[] content, String remoteFolder) throws SoapExAPIException;
-    /**
-     *
-     * @param fileName
-     * @param base64content
-     * 			base64 string of doc's content
-     * @param remoteFolder
-     * 			remote folder
-     * @return
-     * @throws SoapExAPIException
-     * 			if something goes wrong [bad 'fileName', bad 'base64content']
-     */
-    boolean uploadDocBase64(String fileName, String base64content, String remoteFolder) throws SoapExAPIException;
 
 }

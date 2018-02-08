@@ -81,30 +81,6 @@ public interface EdiServer {
     /**
      * 
      * @param fileName
-     * @param remoteFolder
-     * @param user
-     * @param content
-     * @return
-     *     returns org.exite.edi.soap.EdiResponse
-     */
-    @WebMethod
-    @WebResult(name = "result", targetNamespace = "")
-    @RequestWrapper(localName = "uploadDoc", targetNamespace = "http://soap.edi.exite.org/", className = "org.exite.edi.soap.UploadDoc")
-    @ResponseWrapper(localName = "uploadDocResponse", targetNamespace = "http://soap.edi.exite.org/", className = "org.exite.edi.soap.UploadDocResponse")
-    @Action(input = "http://soap.edi.exite.org/EdiServer/uploadDocRequest", output = "http://soap.edi.exite.org/EdiServer/uploadDocResponse")
-    public EdiResponse uploadDoc(
-        @WebParam(name = "user", targetNamespace = "")
-        EdiLogin user,
-        @WebParam(name = "fileName", targetNamespace = "")
-        String fileName,
-        @WebParam(name = "content", targetNamespace = "")
-        byte[] content,
-        @WebParam(name = "remoteFolder", targetNamespace = "")
-        String remoteFolder);
-
-    /**
-     * 
-     * @param fileName
      * @param user
      * @return
      *     returns org.exite.edi.soap.EdiResponse

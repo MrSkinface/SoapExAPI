@@ -26,14 +26,12 @@ public class ObjectFactory {
 
     private final static QName _GetDocResponse_QNAME = new QName("http://soap.edi.exite.org/", "getDocResponse");
     private final static QName _ArchiveDocResponse_QNAME = new QName("http://soap.edi.exite.org/", "archiveDocResponse");
-    private final static QName _UploadDoc_QNAME = new QName("http://soap.edi.exite.org/", "uploadDoc");
     private final static QName _GetDoc_QNAME = new QName("http://soap.edi.exite.org/", "getDoc");
     private final static QName _GetList_QNAME = new QName("http://soap.edi.exite.org/", "getList");
     private final static QName _GetListResponse_QNAME = new QName("http://soap.edi.exite.org/", "getListResponse");
     private final static QName _SendDocResponse_QNAME = new QName("http://soap.edi.exite.org/", "sendDocResponse");
     private final static QName _ArchiveDoc_QNAME = new QName("http://soap.edi.exite.org/", "archiveDoc");
     private final static QName _SendDoc_QNAME = new QName("http://soap.edi.exite.org/", "sendDoc");
-    private final static QName _UploadDocResponse_QNAME = new QName("http://soap.edi.exite.org/", "uploadDocResponse");
     private final static QName _SendDocContent_QNAME = new QName("", "content");
 
     /**
@@ -41,14 +39,6 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link UploadDocResponse }
-     * 
-     */
-    public UploadDocResponse createUploadDocResponse() {
-        return new UploadDocResponse();
     }
 
     /**
@@ -105,14 +95,6 @@ public class ObjectFactory {
      */
     public ArchiveDocResponse createArchiveDocResponse() {
         return new ArchiveDocResponse();
-    }
-
-    /**
-     * Create an instance of {@link UploadDoc }
-     * 
-     */
-    public UploadDoc createUploadDoc() {
-        return new UploadDoc();
     }
 
     /**
@@ -174,15 +156,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UploadDoc }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://soap.edi.exite.org/", name = "uploadDoc")
-    public JAXBElement<UploadDoc> createUploadDoc(UploadDoc value) {
-        return new JAXBElement<UploadDoc>(_UploadDoc_QNAME, UploadDoc.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetDoc }{@code >}}
      * 
      */
@@ -237,30 +210,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UploadDocResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://soap.edi.exite.org/", name = "uploadDocResponse")
-    public JAXBElement<UploadDocResponse> createUploadDocResponse(UploadDocResponse value) {
-        return new JAXBElement<UploadDocResponse>(_UploadDocResponse_QNAME, UploadDocResponse.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "", name = "content", scope = SendDoc.class)
     public JAXBElement<byte[]> createSendDocContent(byte[] value) {
         return new JAXBElement<byte[]>(_SendDocContent_QNAME, byte[].class, SendDoc.class, ((byte[]) value));
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "", name = "content", scope = UploadDoc.class)
-    public JAXBElement<byte[]> createUploadDocContent(byte[] value) {
-        return new JAXBElement<byte[]>(_SendDocContent_QNAME, byte[].class, UploadDoc.class, ((byte[]) value));
     }
 
 }
