@@ -21,7 +21,7 @@ public class SoapExAPI implements ISoapExAPI {
 
     public SoapExAPI(String login, String pass) throws MalformedURLException
     {
-        url = new URL("http://195.191.226.106:8080/soap/?wsdl");
+        url = new URL("https://ru-soap.edi.su/soap/?wsdl");
         qname = new QName("http://soap.edi.exite.org/", "EdiServerImplService");
         service = Service.create(url, qname);
         srv = service.getPort(EdiServer.class);
