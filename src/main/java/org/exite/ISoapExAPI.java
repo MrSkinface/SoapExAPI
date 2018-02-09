@@ -27,6 +27,16 @@ public interface ISoapExAPI {
     byte[] getDoc(String fileName) throws SoapExAPIException;
     /**
      *
+     * @param names
+     * 			name of available files on server
+     * @return
+     * 			byte's array of zip content
+     * @throws SoapExAPIException
+     * 			if something goes wrong [bad 'fileName']
+     */
+    byte[] getZippedDocs(List<String> names) throws SoapExAPIException;
+    /**
+     *
      * @param fileName
      * 			name of available file on server
      * @return
@@ -45,6 +55,17 @@ public interface ISoapExAPI {
      * 			if something goes wrong [bad 'fileName']
      */
     boolean archiveDoc(String fileName) throws SoapExAPIException;
+
+    /**
+     *
+     * @param names
+     * 			names of available files on server
+     * @return
+     * 			error code (0 == O.K., otherwise SoapExAPIException will be thrown)
+     * @throws SoapExAPIException
+     * 			if something goes wrong [bad 'fileName']
+     */
+    boolean archiveDocuments(List<String> names) throws SoapExAPIException;
     /**
      *
      * @param fileName

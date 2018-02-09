@@ -21,16 +21,16 @@ public class SoapExAPI implements ISoapExAPI {
 
     public SoapExAPI(String login, String pass) throws MalformedURLException
     {
-        url = new URL("https://ru-soap.edi.su/soap/?wsdl");
-        qname = new QName("http://soap.edi.exite.org/", "EdiServerImplService");
+        url = new URL("http://localhost:8082/soap/exite.wsdl");
+        qname = new QName("http://soap.edi.exite.org", "ExiteWsService");
         service = Service.create(url, qname);
-        srv = service.getPort(EdiServer.class);
+        srv = service.getPort(ExiteWs.class);
         this.user=new EdiLogin();
         user.setLogin(login);
         user.setPass(DigestUtils.md5Hex(pass));
     }
 
-    private EdiServer srv;
+    private ExiteWs srv;
     private EdiLogin user;
 
     @Override
@@ -73,5 +73,21 @@ public class SoapExAPI implements ISoapExAPI {
     @Override
     public boolean sendDocBase64(String fileName, String base64content) throws SoapExAPIException {
         return sendDoc(fileName, Base64.getDecoder().decode(base64content));
+    }
+
+    @Override
+    public byte[] getZippedDocs(List<String> names) throws SoapExAPIException {
+        EdiFile file=srv.getDocuments(user, names);
+        if(file.getErrorCode()!=0)
+            throw new SoapExAPIException(file.getErrorMessage());
+        return file.getContent();
+    }
+
+    @Override
+    public boolean archiveDocuments(List<String> names) throws SoapExAPIException {
+        EdiResponse resp=srv.archiveDocuments(user, names);
+        if(resp.getErrorCode()!=0)
+            throw new SoapExAPIException(resp.getErrorMessage());
+        return resp.getErrorCode()==0;
     }
 }

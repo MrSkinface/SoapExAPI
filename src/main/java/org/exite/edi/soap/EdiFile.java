@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="ediFile">
  *   &lt;complexContent>
- *     &lt;extension base="{http://soap.edi.exite.org/}ediResponse">
+ *     &lt;extension base="{http://soap.edi.exite.org}ediResponse">
  *       &lt;sequence>
  *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
  *       &lt;/sequence>

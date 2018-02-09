@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  * <pre>
  * &lt;complexType name="ediFileList">
  *   &lt;complexContent>
- *     &lt;extension base="{http://soap.edi.exite.org/}ediResponse">
+ *     &lt;extension base="{http://soap.edi.exite.org}ediResponse">
  *       &lt;sequence>
  *         &lt;element name="list" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>

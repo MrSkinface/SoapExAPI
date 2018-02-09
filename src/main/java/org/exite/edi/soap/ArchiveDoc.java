@@ -3,20 +3,21 @@ package org.exite.edi.soap;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for archiveDoc complex type.
+ * <p>Java class for anonymous complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="archiveDoc">
+ * &lt;complexType>
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="user" type="{http://soap.edi.exite.org/}ediLogin" minOccurs="0"/>
+ *         &lt;element name="user" type="{http://soap.edi.exite.org}ediLogin" minOccurs="0"/>
  *         &lt;element name="fileName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -27,10 +28,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "archiveDoc", propOrder = {
+@XmlType(name = "", propOrder = {
     "user",
     "fileName"
 })
+@XmlRootElement(name = "archiveDoc")
 public class ArchiveDoc {
 
     protected EdiLogin user;

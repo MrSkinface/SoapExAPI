@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="result" type="{http://soap.edi.exite.org}ediFileList" minOccurs="0"/>
+ *         &lt;element name="result" type="{http://soap.edi.exite.org}ediResponse" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,20 +30,20 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "result"
 })
-@XmlRootElement(name = "getListResponse")
-public class GetListResponse {
+@XmlRootElement(name = "uploadDocResponse")
+public class UploadDocResponse {
 
-    protected EdiFileList result;
+    protected EdiResponse result;
 
     /**
      * Gets the value of the result property.
      * 
      * @return
      *     possible object is
-     *     {@link EdiFileList }
+     *     {@link EdiResponse }
      *     
      */
-    public EdiFileList getResult() {
+    public EdiResponse getResult() {
         return result;
     }
 
@@ -52,10 +52,10 @@ public class GetListResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link EdiFileList }
+     *     {@link EdiResponse }
      *     
      */
-    public void setResult(EdiFileList value) {
+    public void setResult(EdiResponse value) {
         this.result = value;
     }
 

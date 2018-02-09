@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="user" type="{http://soap.edi.exite.org}ediLogin" minOccurs="0"/>
  *         &lt;element name="fileName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="content" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/>
+ *         &lt;element name="remoteFolder" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,15 +35,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "user",
     "fileName",
-    "content"
+    "content",
+    "remoteFolder"
 })
-@XmlRootElement(name = "sendDoc")
-public class SendDoc {
+@XmlRootElement(name = "uploadDoc")
+public class UploadDoc {
 
     protected EdiLogin user;
     protected String fileName;
     @XmlElementRef(name = "content", type = JAXBElement.class, required = false)
     protected JAXBElement<byte[]> content;
+    protected String remoteFolder;
 
     /**
      * Gets the value of the user property.
@@ -114,6 +117,30 @@ public class SendDoc {
      */
     public void setContent(JAXBElement<byte[]> value) {
         this.content = value;
+    }
+
+    /**
+     * Gets the value of the remoteFolder property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRemoteFolder() {
+        return remoteFolder;
+    }
+
+    /**
+     * Sets the value of the remoteFolder property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRemoteFolder(String value) {
+        this.remoteFolder = value;
     }
 
 }
