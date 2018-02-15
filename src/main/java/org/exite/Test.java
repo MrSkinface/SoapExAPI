@@ -10,7 +10,23 @@ import java.util.List;
  */
 public class Test {
 
+    static {
+        SSLUtilities.trustAllHostnames();
+        SSLUtilities.trustAllHttpsCertificates();
+
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+    }
+
     public static void main(String[] args) throws Exception {
+
+        /*System.setProperty("javax.net.ssl.keyStore", "client.jks");
+        System.setProperty("javax.net.ssl.keyStorePassword", "password");
+        System.setProperty("javax.net.ssl.keyStoreType", "JKS");*/
+
+
         ISoapExAPI soap = new SoapExAPI("testru","135a6887");
 
         // list

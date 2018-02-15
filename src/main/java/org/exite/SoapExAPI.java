@@ -1,14 +1,19 @@
 package org.exite;
 
+import com.sun.xml.internal.ws.api.message.Headers;
+import com.sun.xml.internal.ws.developer.JAXWSProperties;
+import com.sun.xml.internal.ws.developer.WSBindingProvider;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.exite.edi.soap.*;
 
 import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Service;
+import javax.xml.ws.handler.MessageContext;
+import javax.xml.ws.http.HTTPBinding;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Base64;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by levitsky on 08.02.18.
@@ -21,10 +26,21 @@ public class SoapExAPI implements ISoapExAPI {
 
     public SoapExAPI(String login, String pass) throws MalformedURLException
     {
-        url = new URL("http://localhost:8082/soap/exite.wsdl");
+        url = new URL("https://dev.ua.int:8083/soap/exite.wsdl");
         qname = new QName("http://soap.edi.exite.org", "ExiteWsService");
         service = Service.create(url, qname);
         srv = service.getPort(ExiteWs.class);
+
+        /*Map<String, List<String>> headers = new HashMap<>();
+        headers.put("Username", Collections.singletonList("mkyong"));
+        headers.put("Password", Collections.singletonList("password"));
+        headers.put("Content-Type", Collections.singletonList("shit"));
+        headers.put("Accept", Collections.singletonList("bull shit"));
+        headers.put("User-Agent", Collections.singletonList("The Guy"));
+
+        ((WSBindingProvider)srv).setOutboundHeaders(Headers.create(new QName("User-Agent"), "The Guy"));
+        ((BindingProvider)srv).getRequestContext().put(MessageContext.HTTP_REQUEST_HEADERS, headers);*/
+
         this.user=new EdiLogin();
         user.setLogin(login);
         user.setPass(DigestUtils.md5Hex(pass));
