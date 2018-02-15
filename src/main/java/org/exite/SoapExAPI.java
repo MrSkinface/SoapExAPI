@@ -21,7 +21,7 @@ public class SoapExAPI implements ISoapExAPI {
 
     public SoapExAPI(String login, String pass) throws MalformedURLException
     {
-        url = new URL("http://localhost:8082/soap/exite.wsdl");
+        url = new URL("https://localhost:8081/soap/exite.wsdl");
         qname = new QName("http://soap.edi.exite.org", "ExiteWsService");
         service = Service.create(url, qname);
         srv = service.getPort(ExiteWs.class);

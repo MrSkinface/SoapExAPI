@@ -10,12 +10,22 @@ import java.util.List;
  */
 public class Test {
 
+    static {
+        SSLUtilities.trustAllHostnames();
+        SSLUtilities.trustAllHttpsCertificates();
+
+        System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+        System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+        System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+    }
+
     public static void main(String[] args) throws Exception {
         ISoapExAPI soap = new SoapExAPI("testru","135a6887");
 
         // list
 
-        //System.out.println(soap.getList().size());
+        System.out.println(soap.getList().size());
 
         // getdoc
         /*System.out.println(LocalDateTime.now());
@@ -41,11 +51,11 @@ public class Test {
         System.out.println(LocalDateTime.now());*/
 
         // arc documents
-        List<String> list = soap.getList();
+        /*List<String> list = soap.getList();
         list.remove(0);
         list.remove(1);
         System.out.println(LocalDateTime.now());
         soap.archiveDocuments(list);
-        System.out.println(LocalDateTime.now());
+        System.out.println(LocalDateTime.now());*/
     }
 }
