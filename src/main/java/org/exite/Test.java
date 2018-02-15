@@ -15,7 +15,7 @@ public class Test {
 
         // list
 
-        //System.out.println(soap.getList().size());
+        System.out.println(soap.getList().size());
 
         // getdoc
         /*System.out.println(LocalDateTime.now());
@@ -41,11 +41,11 @@ public class Test {
         System.out.println(LocalDateTime.now());*/
 
         // arc documents
-        List<String> list = soap.getList();
+        /*List<String> list = soap.getList();
         list.remove(0);
         list.remove(1);
         System.out.println(LocalDateTime.now());
         soap.archiveDocuments(list);
-        System.out.println(LocalDateTime.now());
+        System.out.println(LocalDateTime.now());*/
     }
 }
