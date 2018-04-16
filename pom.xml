@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.exite</groupId>
-    <artifactId>SoapExAPI</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>SoapExAPI-UA</artifactId>
+    <version>1.0.0</version>
 
     <dependencies>
         <dependency>
